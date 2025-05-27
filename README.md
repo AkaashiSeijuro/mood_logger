@@ -1,18 +1,18 @@
 # Mood of the Queue
 
-This is a simple internal tool to log the mood of a ticket queue and visualize the emotional trends throughout the day.
+This internal tool allows team members to log the mood of the ticket queue and visualize the emotional trends throughout the day.
 
 ---
 
-## Goal
+## Overview
 
-- Log moods with optional notes
-- Visualize mood trends with a bar chart
-- Data stored in a Google Sheet for easy sharing
+- Users can log their mood along with an optional note.
+- A bar chart provides a real-time summary of moods for the current day.
+- All data is stored in a Google Sheet for easy access and sharing.
 
 ---
 
-## How to Run Locally
+## Running the App Locally
 
 1. Clone the repository:
     ```bash
@@ -25,45 +25,35 @@ This is a simple internal tool to log the mood of a ticket queue and visualize t
     pip install -r requirements.txt
     ```
 
-3. Add your Google Service Account JSON file:
-    - Save it as `google_service_account.json` in the project directory
-    - Do not commit this file to GitHub
+3. Add the Google Service Account JSON file:
+    - Save it as `google_service_account.json` in the project directory.
+    - This file should not be committed to the repository.
 
 4. Update `app.py`:
-    - Ensure the `sheet_id` variable matches your Google Sheet ID
-    - Share your Google Sheet with the service account email
+    - Replace the `sheet_id` variable with the correct Google Sheet ID.
+    - Share the Google Sheet with the service account email to enable editing.
 
-5. Run the app:
+5. Launch the app:
     ```bash
     streamlit run app.py
     ```
 
-6. Open [http://localhost:8501](http://localhost:8501) in your browser to interact with the app.
+6. Open [http://localhost:8501](http://localhost:8501) in a web browser to use the app.
 
 ---
 
 ## Google Sheet Link
 
-- [Google Sheet (view-only)](https://docs.google.com/spreadsheets/d/14jxf9L3UrFXDG6H_IYRvpFp7RhqL6DOv5q658DmpVKs/edit?usp=sharing)
+- [View-only Google Sheet](https://docs.google.com/spreadsheets/d/14jxf9L3UrFXDG6H_IYRvpFp7RhqL6DOv5q658DmpVKs/edit?usp=sharing)
 
 ---
 
-## Loom Walkthrough
+## Security Notice
 
-If required, record a short Loom video showing:
-- Submitting moods
-- Viewing the bar chart
-- Brief overview of the code
+The `google_service_account.json` file contains sensitive credentials and should not be shared or committed to version control.
 
 ---
 
-## Important
+## Additional Notes
 
-- Keep `google_service_account.json` private as it contains sensitive keys.
-- Use `.gitignore` to exclude it from version control.
-
----
-
-## Notes
-
-- The app can be deployed to Streamlit Community Cloud if needed.
+This app is designed to be easily deployable to the Streamlit Community Cloud if desired.
