@@ -1,49 +1,43 @@
 # Mood of the Queue
 
-This internal tool allows team members to log the mood of the ticket queue and visualize the emotional trends throughout the day.
+This tool allows users to log the mood of a ticket queue and visualize emotional trends throughout the day. All data is stored in a Google Sheet for easy sharing and tracking.
 
 ---
 
 ## Overview
 
-- Users can log their mood along with an optional note.
-- A bar chart provides a real-time summary of moods for the current day.
-- All data is stored in a Google Sheet for easy access and sharing.
+- Users can log a mood entry with an optional note.
+- A bar chart provides a summary of mood entries for the current day.
 
 ---
 
-## Running the App Locally
+## Running the App
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/YOUR_USERNAME/mood-queue.git
-    cd mood-queue
-    ```
+1. Clone the repository and navigate to the project directory.
 
-2. Install dependencies:
+2. Install the required Python packages:
     ```bash
     pip install -r requirements.txt
     ```
 
-3. Add the Google Service Account JSON file:
-    - Save it as `google_service_account.json` in the project directory.
-    - This file should not be committed to the repository.
+3. Ensure that a Google Service Account JSON file is available in the project directory.  
+   - This file contains the necessary credentials to access the Google Sheet.  
+   - It should not be committed to version control.
 
-4. Update `app.py`:
-    - Replace the `sheet_id` variable with the correct Google Sheet ID.
-    - Share the Google Sheet with the service account email to enable editing.
+4. In the code, confirm that the correct Google Sheet ID is used and that the sheet is shared with the service account email to allow editing.
 
-5. Launch the app:
+5. Start the application:
     ```bash
     streamlit run app.py
     ```
 
-6. Open [http://localhost:8501](http://localhost:8501) in a web browser to use the app.
+6. Open the application in a web browser at the provided local URL.
 
 ---
 
-## Google Sheet Link
+## Google Sheet
 
+A shared Google Sheet is used as the data store for this tool:
 - [View-only Google Sheet](https://docs.google.com/spreadsheets/d/14jxf9L3UrFXDG6H_IYRvpFp7RhqL6DOv5q658DmpVKs/edit?usp=sharing)
 
 ---
