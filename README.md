@@ -47,13 +47,3 @@ This internal tool allows team members to log the mood of the ticket queue and v
 - [View-only Google Sheet](https://docs.google.com/spreadsheets/d/14jxf9L3UrFXDG6H_IYRvpFp7RhqL6DOv5q658DmpVKs/edit?usp=sharing)
 
 ---
-
-## Security Notice
-
-The `google_service_account.json` file contains sensitive credentials and should not be shared or committed to version control.
-
----
-
-## Additional Notes
-
-This app is designed to be easily deployable to the Streamlit Community Cloud if desired.
