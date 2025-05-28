@@ -1,25 +1,36 @@
-# Import required libraries
+# app.py
+
 import streamlit as st
 import gspread
+import json
+import os
 from google.oauth2.service_account import Credentials
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-# Path to the Service Account JSON file
-json_file = "Your_Service_Account.json"
-
-# Google Sheets API authentication
+# Google Sheets API setup
 scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
-creds = Credentials.from_service_account_file(json_file, scopes=scope)
+
+# Load credentials from Streamlit secrets or local file
+if "GOOGLE_SERVICE_ACCOUNT_JSON" in os.environ:
+    # Running in Streamlit Cloud (using secrets)
+    json_content = os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"]
+    json_dict = json.loads(json_content)
+    creds = Credentials.from_service_account_info(json_dict, scopes=scope)
+else:
+    # Running locally with JSON file
+    json_file = "mood-tracker-project-461122-fa4150a81eda.json"
+    creds = Credentials.from_service_account_file(json_file, scopes=scope)
+
 client = gspread.authorize(creds)
 
 # Google Sheet configuration
 sheet_id = "14jxf9L3UrFXDG6H_IYRvpFp7RhqL6DOv5q658DmpVKs"
 sheet = client.open_by_key(sheet_id).sheet1
 
-# Streamlit user interface
-st.title("Mood of the Queue")
+# Streamlit UI
+st.title("📝 Mood of the Queue")
 
 # Mood input selection
 mood = st.selectbox(
@@ -28,14 +39,14 @@ mood = st.selectbox(
 )
 note = st.text_input("Optional note:")
 
-# Handle submission of mood entry
+# Submit mood entry
 if st.button("Submit"):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     sheet.append_row([timestamp, mood, note])
     st.success("Mood logged successfully!")
 
-# Visualize mood data for the current day
-st.header("Today's Mood Summary")
+# Visualize today's mood summary
+st.header("📊 Today's Mood Summary")
 data = pd.DataFrame(sheet.get_all_records())
 
 if not data.empty:
