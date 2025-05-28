@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 
 # Path to the Service Account JSON file
-json_file = "mood-tracker-project-461122-fa4150a81eda.json"
+json_file = "Your_Service_Account.json"
 
 # Google Sheets API authentication
 scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
